@@ -1,5 +1,6 @@
 """AhmedGPT — Streamlit arayüzü."""
 
+import os
 import sys
 from pathlib import Path
 
@@ -9,6 +10,14 @@ KOK = Path(__file__).parent
 sys.path.insert(0, str(KOK / "src"))
 
 from rag import AhmedGPT  # noqa: E402
+
+# Sunucuda .env dosyası yok; anahtar Streamlit Secrets'tan geliyor.
+# Yerelde secrets.toml olmadığı için erişim hata veriyor, o durumda .env devreye giriyor.
+try:
+    if "GOOGLE_API_KEY" in st.secrets:
+        os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+except Exception:
+    pass
 
 st.set_page_config(
     page_title="AhmedGPT",
