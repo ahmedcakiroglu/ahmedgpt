@@ -1,5 +1,7 @@
 # AhmedGPT
 
+**Canlı demo: [ahmedcakiroglugpt.streamlit.app](https://ahmedcakiroglugpt.streamlit.app/)**
+
 Kişisel portfolyo sitesi için RAG (Retrieval-Augmented Generation) tabanlı soru-cevap asistanı. Ziyaretçiler Ahmed Çakıroğlu hakkında soru soruyor; sistem elindeki bilgi tabanından ilgili bölümleri bulup dil modeline bağlam olarak veriyor ve modelin sadece bu bilgilere dayanarak cevap vermesini sağlıyor.
 
 Projenin odağı "çalışan bir chatbot" değil, **retrieval kalitesinin ölçülmesi ve iyileştirilmesi**. Aşağıdaki sonuçlar, model veya kod değiştirilmeden yalnızca bilgi tabanı metinleri yeniden yazılarak elde edildi.
@@ -88,6 +90,7 @@ Benimsenen kural: bilgi tabanındaki hiçbir paragraf kişi adıyla başlamıyor
 - **Kısa ve çok anlamlı sorular kaçıyor.** Kalan 3 hatanın tamamı bu tip: "Bölümü ne?", "Hangi araçları kullanıyor?" ("araç" hem *tool* hem *vehicle*). Bilinen çözümler (query expansion, BM25 ile hibrit arama) bu ölçek için gereksiz karmaşıklık olduğundan uygulanmadı.
 - **Test seti küçük.** 22 soruluk sette tek bir soru ±4.5 puan oynatıyor. Sonuçlar yön gösterir, kesin başarım değeri değildir.
 - **Yaş hesabı kodda yapılıyor.** Dil modeli `thinking_level: minimal` ile basit tarih aritmetiğinde hata yaptı. Deterministik hesap kodda, dil işi modelde — prompta hazır sonuç veriliyor.
+- **Ücretsiz barındırma uykuya geçiyor.** Streamlit Community Cloud'da uygulama bir süre ziyaretçi almazsa duruyor; sonraki ilk açılış ~30-60 saniye sürüyor. Yavaş olan parçaları vektörlemek değil (~2 sn), embedding modelinin belleğe yüklenmesi.
 
 ---
 
@@ -117,7 +120,11 @@ streamlit run app.py
 
 ```
 ahmedgpt/
-├── app.py                 Streamlit arayüzü
+├── app.py                 Giriş noktası: ortak stil ve üst menü
+├── sayfalar/
+│   ├── ana_sayfa.py       Tanıtım ve sohbet
+│   └── nasil_yapildi.py   Sistemin anlatımı ve ölçüm sonuçları
+├── arayuz/                Simgeler ve bot görseli
 ├── src/rag.py             RAG motoru (parçalama, arama, cevap üretimi)
 ├── data/                  Bilgi tabanı (5 Markdown dosyası, 36 parça)
 ├── notebooks/             Keşif ve ölçüm defterleri
