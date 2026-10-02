@@ -168,7 +168,7 @@ with sag:
               <p class="sohbet-ad">AhmedGPT</p>
             </div>
             <p class="sohbet-aciklama">
-              Ahmed'in uzmanlık alanları ve projeleri hakkında merak ettiklerini sorabilirsin.
+              Ahmed'in uzmanlık alanları ve projeleri hakkında merak ettiklerinizi sorabilirsiniz.
             </p>
             """
         )
