@@ -186,6 +186,36 @@ with st.container(key="makale"):
         "sonra test setinin tamamını yeniden çalıştırıyorum."
     )
 
+    st.markdown("## Bu boyutta RAG gerekli miydi?")
+    st.markdown(
+        "Dürüst cevap: muhtemelen hayır. Bilgi tabanının tamamı birkaç bin token "
+        "tutuyor; günümüz dil modelleri bunun yüzlerce katını tek seferde "
+        "okuyabiliyor. Beş dosyanın hepsini doğrudan prompta koysaydım model her "
+        "soruda her şeyi görürdü. Arama adımı olmadığı için \"doğru paragraf ilk "
+        "üçe giremedi\" türünden bir hata da olmazdı; yukarıda ölçtüğüm "
+        "kaçırmaların çoğu kendiliğinden ortadan kalkardı."
+    )
+    st.markdown("RAG'ın avantajları veri büyüdükçe ortaya çıkıyor:")
+    st.markdown(
+        """
+- **Maliyet ve hız.** Her soruda bütün bilgi tabanı yerine yalnızca üç paragraf gönderiliyor. 36 parçada bu fark önemsiz, binlerce belgede ise her şeyi her soruda göndermek mümkün değil.
+- **Uzun metinde kaybolma.** Dil modelleri çok uzun bir bağlamın ortasındaki bilgiyi kaçırmaya meyilli. Az ama doğru metin vermek daha güvenilir.
+- **Kaynak gösterme.** Hangi paragrafın kullanıldığı bilindiği için cevabın altında kaynakları gösterebiliyorum. Her şeyi prompta koyduğumda bunu kaybederim.
+        """
+    )
+    st.markdown(
+        "Yine de RAG'ı seçtim, çünkü projenin amacı yalnızca bir sohbet botu "
+        "yapmak değil, büyük veride kullanılacak teknikleri öğrenmekti: embedding, "
+        "benzerlik araması, metni parçalama ve arama kalitesini ölçme. Bunları "
+        "36 parçalık, her sonucunu kontrol edebildiğim küçük bir veri üzerinde "
+        "öğrenmek daha kolaydı."
+    )
+    st.markdown(
+        "Sıradaki adım, iki yaklaşımı aynı test setiyle karşılaştırmak: tüm "
+        "bilginin prompta konduğu sürüm ile RAG sürümünü doğruluk, cevap süresi "
+        "ve token maliyeti açısından ölçmek."
+    )
+
     st.markdown("## Bilinen kısıtlar")
     st.markdown(
         """

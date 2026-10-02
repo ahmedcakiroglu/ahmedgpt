@@ -81,8 +81,9 @@ KUNYE = "".join(
             "konular",
             "Çalıştığım konular",
             '<div class="etiketler">'
-            + etiket("RAG ve dil modelleri")
+            + etiket("Makine öğrenmesi")
             + etiket("Bilgisayarlı görü")
+            + etiket("Dil modelleri")
             + etiket("Edge AI")
             + "</div>",
         ),
@@ -138,11 +139,12 @@ with sol:
             f"""
             <h1 class="ad">Ahmed<br>Çakıroğlu</h1>
             <div class="ad-cizgi"></div>
-            <p class="unvan">Yapay zeka mühendisliği ve Edge AI</p>
+            <p class="unvan">Yapay zeka ve elektronik</p>
             <p class="ozet">
               Gazi Üniversitesi'nde Elektrik-Elektronik Mühendisliği okuyorum.
-              Dil modeli tabanlı sistemlerden modellerin kısıtlı donanımda
-              çalıştırılmasına kadar, yapay zekayı uçtan uca kurmayı öğreniyorum.
+              Yapay zeka ile elektroniğin kesiştiği yerde çalışıyorum: veriden
+              model kurmayı, kurduğum modeli doğru ölçmeyi ve onu gerçek
+              donanıma taşımayı öğreniyorum.
             </p>
 
             <div class="kunye cam">{KUNYE}</div>
